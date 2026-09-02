@@ -7,3 +7,22 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+sensor:
+  - platform: history_stats
+    name: TV Daily Time
+    entity_id: media_player.gostinaia_tv
+    state: "on"
+    type: time
+    start: >
+      {% if now().weekday() in [4, 5] %}
+        {{ now() }}
+      {% else %}
+        {{ today_at('08:00') }}
+      {% endif %}
+    end: >
+      {% if now().weekday() in [4, 5] %}
+        {{ now() }}
+      {% else %}
+        {{ [now(), today_at('18:00')] | min }}
+      {% endif %}
