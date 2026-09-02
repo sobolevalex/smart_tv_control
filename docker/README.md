@@ -7,7 +7,7 @@ docker/
 ├── manage.sh                # Management script (start/stop/logs/autostart)
 ├── README.md                # This manual
 └── config/                  # Home Assistant configuration directory
-    ├── configuration.yaml   # Core configuration (reverse proxy pre-configured)
+    ├── configuration.yaml   # Core configuration
     ├── automations.yaml     # Automations file (limits and TV lockouts)
     ├── scripts.yaml         # Home Assistant scripts
     └── scenes.yaml          # Home Assistant scenes
@@ -57,23 +57,4 @@ Since `cloudflared` is already running in Docker on your Jetson:
    - Under **Public Hostname**, add a subdomain (e.g., `ha.yourdomain.com`).
    - Service type: `HTTP`.
    - URL: `localhost:8123` (or `127.0.0.1:8123`).
-3. `docker/config/configuration.yaml` is pre-configured with `use_x_forwarded_for: true` and trusted proxy subnets to prevent `400 Bad Request` errors.
-
----
-
-## 4. Git Workflow
-
-1. **Develop**: make code and configuration changes locally on your workstation.
-2. **Push**:
-   ```bash
-   git add .
-   git commit -m "Update configuration"
-   git push
-   ```
-3. **Deploy on Jetson**:
-   ```bash
-   cd ~/smart_tv_control
-   git pull
-   ./docker/manage.sh restart
-   ```
-*(Runtime databases `home-assistant_v2.db*`, `.storage/`, and log files are excluded via `.gitignore`).*
+3. Reverse Proxy settings are managed via Web UI (**Settings** -> **System** -> **Network**).

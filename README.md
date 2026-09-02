@@ -37,7 +37,7 @@ Documentation and setup roadmap for monitoring and limiting Samsung Smart TV wat
 ### Step 2. Initial Home Assistant Configuration
 - Start container: `./docker/manage.sh start`.
 - Open `http://<JETSON_IP>:8123` and create an admin user.
-- Reverse proxy support is pre-configured in `docker/config/configuration.yaml` (`use_x_forwarded_for: true`, trusted proxies).
+- Reverse proxy support is configured via UI (**Settings** -> **System** -> **Network**).
 
 ### Step 3. Cloudflare Tunnel Routing
 - In Cloudflare Zero Trust dashboard (Networks -> Tunnels), route a subdomain (e.g., `ha.yourdomain.com`) to `http://localhost:8123`.
