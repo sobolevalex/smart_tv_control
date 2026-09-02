@@ -1,0 +1,17 @@
+# Home Assistant generated data & secrets
+docker/config/.storage/
+docker/config/home-assistant_v2.db*
+docker/config/home-assistant.log*
+docker/config/secrets.yaml
+docker/config/tts/
+docker/config/backups/
+docker/config/.HA_RESTORE
+docker/config/.cloud/
+docker/config/deps/
+
+# OS / IDE files
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/

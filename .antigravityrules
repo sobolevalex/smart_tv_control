@@ -1,0 +1,6 @@
+# System Constraints & Standards
+- Language: English only for all output, code, comments, docs.
+- Brevity: Extreme brevity. Bullet points. Zero conversational filler.
+- Git flow: Local edit -> git push -> Jetson git pull -> `./docker/manage.sh restart`.
+- Secret hygiene: Never track tokens, passwords, `.storage/`, `home-assistant_v2.db*`, logs.
+- Config format: Valid YAML only. Minimal diffs.
